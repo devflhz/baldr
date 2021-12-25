@@ -6,10 +6,9 @@ use windows::{
 
 use crate::{AbstractApplication, Application, AbstractWindow, Window, WindowProperties};
 
-impl AbstractApplication<WindowProperties> for Application<WindowProperties> {
+impl AbstractApplication<WindowProperties> for Application {
     fn builder() -> Self {
         Self {
-            application: Default::default(),
             properties: Default::default(),
         }
     }
