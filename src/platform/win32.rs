@@ -88,33 +88,29 @@ impl AbstractWindow<WindowProperties> for Window<WindowProperties> {
         }
     }
 
-    fn title(&mut self, title: &str) -> Self {
+    fn title(mut self, title: &str) -> Self {
         self.properties.title = title.to_string();
-        self.clone()
+        self
     }
 
-    fn default_width(&mut self, w: i32) -> Self {
+    fn default_width(mut self, w: i32) -> Self {
         self.properties.default_width = w;
-        self.clone()
+        self
     }
 
-    fn default_height(&mut self, h: i32) -> Self {
+    fn default_height(mut self, h: i32) -> Self {
         self.properties.default_height = h;
-        self.clone()
+        self
     }
 
-    fn set_width(&mut self, w: i32) -> Self {
+    fn set_width(mut self, w: i32) -> Self {
         self.properties.width = w;
-        self.clone()
+        self
     }
 
-    fn set_height(&mut self, h: i32) -> Self {
+    fn set_height(mut self, h: i32) -> Self {
         self.properties.height = h;
-        self.clone()
-    }
-
-    fn build(&self) -> WindowProperties {
-        self.properties.clone()
+        self
     }
 }
 

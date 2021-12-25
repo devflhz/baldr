@@ -7,17 +7,24 @@ use crate::{AbstractApplication, AbstractWindow, Application, Window};
 impl AbstractApplication<ApplicationWindowBuilder> for Application<ApplicationBuilder> {
     fn builder() -> Application<ApplicationBuilder> {
         Self {
-            application: GApplication::builder()
+            properties: Default::default()
         }
     }
 
-    fn application_id(&mut self, id: &str) -> Application<ApplicationBuilder> {
-        self.application = self.application.clone().application_id(id);
+    fn name(&mut self, name: &str) -> Self {
+        self.properties.name = name.to_string();
+        self.clone()
+    }
+
+    fn application_id(&mut self, id: &str) -> Application {
+        self.properties.app_id = id.to_string();
         self.clone()
     }
 
     fn connect_activate(&self, w: Window<ApplicationWindowBuilder>) {
-        let app = self.application.clone().build();
+        let app = GApplication::builder()
+            .application_id(self.properties.app_id)
+            .build();
         app.connect_activate(move |app| {
             // We create the main window.
             let window = w.window.clone()
@@ -34,26 +41,33 @@ impl AbstractApplication<ApplicationWindowBuilder> for Application<ApplicationBu
 impl AbstractWindow<ApplicationWindow> for Window<ApplicationWindowBuilder> {
     fn builder() -> Window<ApplicationWindowBuilder> {
         Window {
-            window: ApplicationWindow::builder()
+            window: ApplicationWindow::builder(),
+            properties: Default::default()
         }
     }
 
-    fn title(&mut self, title: &str) -> Window<ApplicationWindowBuilder> {
-        self.window = self.window.clone().title(title);
-        self.clone()
+    fn title(mut self, title: &str) -> Self {
+        self.properties.title = title.to_string();
+        self
     }
 
-    fn default_width(&mut self, w: i32) -> Window<ApplicationWindowBuilder> {
-        self.window = self.window.clone().default_width(w);
-        self.clone()
+    fn default_width(mut self, w: i32) -> Self {
+        self.properties.default_width = w;
+        self
     }
 
-    fn default_height(&mut self, h: i32) -> Window<ApplicationWindowBuilder> {
-        self.window = self.window.clone().default_height(h);
-        self.clone()
+    fn default_height(mut self, h: i32) -> Self {
+        self.properties.default_height = h;
+        self
     }
 
-    fn build(&self) -> ApplicationWindow {
-        self.window.clone().build()
+    fn set_width(mut self, w: i32) -> Self {
+        self.properties.width = w;
+        self
+    }
+
+    fn set_height(mut self, h: i32) -> Self {
+        self.properties.height = h;
+        self
     }
 }

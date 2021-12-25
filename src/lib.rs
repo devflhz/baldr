@@ -9,15 +9,14 @@ pub trait AbstractApplication<T> {
 
 pub trait AbstractWindow<T> {
     fn builder() -> Self;
-    fn title(&mut self, title: &str) -> Self;
-    fn default_width(&mut self, w: i32) -> Self;
-    fn default_height(&mut self, h: i32) -> Self;
-    fn set_width(&mut self, w: i32) -> Self;
-    fn set_height(&mut self, h: i32) -> Self;
-    fn build(&self) -> T;
+    fn title(self, title: &str) -> Self;
+    fn default_width(self, w: i32) -> Self;
+    fn default_height(self, h: i32) -> Self;
+    fn set_width(self, w: i32) -> Self;
+    fn set_height(self, h: i32) -> Self;
 }
 
-#[derive(Clone)]
+#[derive(Clone, Default)]
 pub struct Window<T> {
     pub window: T,
     pub properties: WindowProperties
@@ -33,8 +32,7 @@ pub struct WindowProperties {
 }
 
 #[derive(Clone)]
-pub struct Application<T> {
-    pub application: T,
+pub struct Application {
     pub properties: AppProperties
 }
 
