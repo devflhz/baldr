@@ -1,8 +1,10 @@
+#[cfg(target_os = "macos")]
 use cacao::macos::{App, AppDelegate};
+#[cfg(target_os = "macos")]
 use cacao::macos::window::Window as NSWindow;
-
+#[cfg(target_os = "macos")]
 use crate::{AbstractApplication, AbstractWindow, Application, Window};
-
+#[cfg(target_os = "macos")]
 impl AppDelegate for Window<NSWindow> {
     fn did_finish_launching(&self) {
         self.window.set_content_size(self.properties.default_width, self.properties.default_height);
@@ -33,7 +35,7 @@ impl AbstractApplication<NSWindow> for Application {
         App::new(self.properties.app_id.as_str(), w).run();
     }
 }
-
+#[cfg(target_os = "macos")]
 impl AbstractWindow<NSWindow> for Window<NSWindow> {
     fn builder() -> Window<NSWindow> {
         Window {

@@ -1,11 +1,11 @@
 use gtk4 as gtk;
-use gtk::{ApplicationBuilder, ApplicationWindow, ApplicationWindowBuilder};
+use gtk::{ApplicationWindow, ApplicationWindowBuilder};
 use gtk::prelude::*;
 use gtk::Application as GApplication;
 use crate::{AbstractApplication, AbstractWindow, Application, Window};
 
-impl AbstractApplication<ApplicationWindowBuilder> for Application<ApplicationBuilder> {
-    fn builder() -> Application<ApplicationBuilder> {
+impl AbstractApplication<ApplicationWindowBuilder> for Application {
+    fn builder() -> Application {
         Self {
             properties: Default::default()
         }
@@ -23,11 +23,14 @@ impl AbstractApplication<ApplicationWindowBuilder> for Application<ApplicationBu
 
     fn connect_activate(&self, w: Window<ApplicationWindowBuilder>) {
         let app = GApplication::builder()
-            .application_id(self.properties.app_id)
+            .application_id(self.properties.app_id.as_str())
             .build();
         app.connect_activate(move |app| {
             // We create the main window.
             let window = w.window.clone()
+                .title(w.properties.title.as_str())
+                .default_width(w.properties.default_width)
+                .default_height(w.properties.default_height)
                 .application(app)
                 .build();
 
