@@ -7,11 +7,12 @@ edition = "2021"
 
 [dependencies]
 detect-desktop-environment = "0.2.0"
-#cacao = "0.2.1"
-gtk4 = "0.3.1"
 anyhow = "1.0.52"
-
-[dependencies.windows]
+[target.'cfg(target_os = "macos")'.dependencies]
+cacao = "0.2.1"
+[target.'cfg(target_os = "linux")'.dependencies]
+gtk4 = "0.3.1"
+[target.'cfg(target_os = "windows")'.dependencies.windows]
 version = "0.29"
 features = [
     "alloc",
@@ -20,6 +21,9 @@ features = [
     "Win32_System_LibraryLoader",
     "Win32_UI_WindowsAndMessaging",
 ]
+
+[dependencies.windows]
+
 
 [[example]]
 name = "basic_window"
