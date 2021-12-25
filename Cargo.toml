@@ -20,6 +20,12 @@ features = [
     "Win32_Graphics_Gdi",
     "Win32_System_LibraryLoader",
     "Win32_UI_WindowsAndMessaging",
+    "std",
+    "build",
+    "ApplicationModel_Activation",
+    "Win32_System_Com",
+    "UI_Xaml_Controls",
+    "UI_Xaml",
 ]
 
 [[example]]

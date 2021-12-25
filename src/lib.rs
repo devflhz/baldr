@@ -1,4 +1,5 @@
 pub mod platform;
+pub mod widgets;
 
 pub trait AbstractApplication<T> {
     fn builder() -> Self;
