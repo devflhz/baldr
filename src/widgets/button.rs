@@ -1,3 +1,3 @@
 pub struct Button<T> {
-    button: T
+    _button: T
 }

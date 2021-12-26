@@ -1,6 +1,6 @@
 use crate::widgets::{widget::Widget, button::Button};
 
-impl Widget for Button<MacButton> {
+impl<MacButton> Widget for Button<MacButton> {
     fn paint() {
         todo!()
     }
