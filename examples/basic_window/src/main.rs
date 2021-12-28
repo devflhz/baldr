@@ -1,13 +1,8 @@
 use anyhow::Result;
-use baldr::{AbstractApplication, AbstractWindow, Application, Window};
+use baldr::Application;
+use baldr::widgets::{scaffold::Scaffold, appbar::AppBar, text::Text, Linux};
 
 fn main() -> Result<()> {
-    let app = Application::builder()
-        .application_id("com.edfloreshz.github");
-    let window = Window::builder()
-        .default_width(320)
-        .default_height(620)
-        .title("Example");
-    app.connect_activate(window);
+    Text("Hello, world").widget();
     Ok(())
 }
