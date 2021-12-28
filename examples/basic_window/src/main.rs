@@ -1,5 +1,6 @@
 use anyhow::Result;
 use baldr::Application;
+use baldr::widgets::button::Button;
 use baldr::widgets::{
     scaffold::Scaffold,
     appbar::AppBar,
@@ -14,9 +15,12 @@ fn main() -> Result<()> {
             app_bar: AppBar {
                 title: Text("My First App")
             },
-            body: Text("Hello World.")
+            body: Button {
+                child: Text("Press"),
+                ..Default::default()
+            }
         },
     };
-    println!("{:#?}", app);
+    println!("{:#?}", app.home.body.on_pressed);
     Ok(())
 }

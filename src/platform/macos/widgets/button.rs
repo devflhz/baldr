@@ -1,15 +1,25 @@
-use crate::widgets::{widget::Widget, button::Button};
+use cacao::button::Button as AKButton;
+use crate::Widget;
+use crate::widgets::button::Button;
+use crate::widgets::DowncastWidget;
+use crate::widgets::text::Text;
 
-impl<MacButton> Widget for Button<MacButton> {
-    fn paint() {
-        todo!()
+impl<'a> Default for Button<'a> {
+    fn default() -> Self {
+        Button {
+            on_pressed: (),
+            child: Text::default(),
+        }
     }
+}
 
-    fn disable() {
-        todo!()
-    }
+impl<'a> Widget for Button<'a> {
 
-    fn enable() {
-        todo!()
+}
+
+impl<'a> DowncastWidget<AKButton> for Button<'a> {
+    fn downcast(&self) -> AKButton {
+        let button = AKButton::new(self.child.0);
+        button
     }
 }
