@@ -1,5 +1,6 @@
+use crate::Widget;
 
-#[derive(Default)]
-pub struct AppBar<T> {
+#[derive(Debug)]
+pub struct AppBar<T: Widget> {
     pub title: T
 }

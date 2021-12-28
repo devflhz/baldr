@@ -1,5 +1,7 @@
-#[derive(Default)]
-pub struct Scaffold<A, B> {
+use crate::Widget;
+
+#[derive(Debug)]
+pub struct Scaffold<A: Widget, B: Widget> {
     pub app_bar: A,
-    pub body: B,
+    pub body: B
 }
