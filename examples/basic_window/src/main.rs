@@ -1,12 +1,14 @@
 use anyhow::Result;
+use baldr::platform::macos::appkit::Application;
 use baldr::widgets::button::Button;
 use baldr::widgets::{appbar::AppBar, window::Window, text::Text};
-use baldr::Application;
+use baldr::{
+    AppCreation
+};
 
 fn main() -> Result<()> {
     let app = Application {
-        app_id: "".to_string(),
-        home: Window {
+        props: Window {
             title: "My App".to_string(),
             default_height: 300,
             default_width: 400,
@@ -25,7 +27,8 @@ fn main() -> Result<()> {
             ),
             ..Default::default()
         },
+        ..Default::default()
     };
-    app.create();
+    app.create("com.github.edfloreshz");
     Ok(())
 }

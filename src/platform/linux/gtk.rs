@@ -8,8 +8,14 @@ use crate::Application;
 use crate::widgets::button::Button;
 use crate::widgets::Native;
 
-impl Application {
-    pub fn create(&self) {
+#[derive(Debug, Clone)]
+pub struct Application {
+    pub app_id: String,
+    pub window: Window,
+}
+
+impl AppCreation for Application {
+    fn create(&self) {
         let app = GApplication::builder()
             .application_id(self.app_id.as_str())
             .build();
