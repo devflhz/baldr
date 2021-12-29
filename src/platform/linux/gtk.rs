@@ -13,7 +13,7 @@ impl Application {
         let app = GApplication::builder()
             .application_id(self.app_id.as_str())
             .build();
-        let options = self.home.options.clone();
+        let options = self.home.clone();
         let app_bar = self.home.app_bar.clone();
         let body = self.home.body.clone();
         app.connect_activate(move |app | {
