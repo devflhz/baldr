@@ -1,11 +1,16 @@
-use crate::widgets::{text::Text, DowncastWidget};
-use crate::WidgetTrait;
+use std::any::Any;
+use crate::widgets::{text::Text, Native};
+use crate::Widget;
 use gtk4::Label;
 
-impl<'a> WidgetTrait for Text<'a> {}
+impl Widget for Text {
+    fn as_any(&self) -> &dyn Any {
+        self
+    }
+}
 
-impl<'a> DowncastWidget<Label> for Text<'a> {
-    fn downcast(&self) -> Label {
-        Label::new(Some(self.0))
+impl Native<Label> for Text {
+    fn native(&self) -> Label {
+        Label::new(Some(self.0.as_str()))
     }
 }

@@ -1,8 +1,8 @@
 use crate::widgets::appbar::AppBar;
-use crate::widgets::WidgetTrait;
+use crate::widgets::Widget;
 use crate::Text;
 
-impl<'a> WidgetTrait for AppBar<Text<'a>> {}
+impl<'a> Widget for AppBar<Text<'a>> {}
 
 // impl<'a> DowncastWidget<Toolbar> for AppBar<Text<'a>> {
 //     fn downcast(&self) -> Toolbar {

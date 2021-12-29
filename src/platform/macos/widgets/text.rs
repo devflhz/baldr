@@ -1,11 +1,11 @@
 use cacao::text::Label;
 
-use crate::widgets::{text::Text, DowncastWidget, WidgetTrait};
+use crate::widgets::{text::Text, Native, Widget};
 
-impl<'a> WidgetTrait for Text<'a> {}
+impl<'a> Widget for Text<'a> {}
 
-impl<'a> DowncastWidget<Label> for Text<'a> {
-    fn downcast(&self) -> Label {
+impl<'a> Native<Label> for Text<'a> {
+    fn native(&self) -> Label {
         let label = Label::new();
         label.set_text(self.0);
         label

@@ -1,6 +1,6 @@
 use crate::Text;
 
-#[derive(Debug, Default)]
-pub struct AppBar<'a> {
-    pub title: Text<'a>,
+#[derive(Debug, Default, Clone)]
+pub struct AppBar {
+    pub title: Text,
 }

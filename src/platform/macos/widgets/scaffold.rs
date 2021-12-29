@@ -1,4 +1,4 @@
-use crate::widgets::scaffold::Scaffold;
-use crate::widgets::WidgetTrait;
+use crate::widgets::window::Window;
+use crate::widgets::Widget;
 
-impl<'a> WidgetTrait for Scaffold<'a> {}
+impl<'a> Widget for Window<'a> {}

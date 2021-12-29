@@ -1,11 +1,11 @@
 use crate::widgets::button::Button;
-use crate::widgets::{DowncastWidget, WidgetTrait};
+use crate::widgets::{Native, Widget};
 use cacao::button::Button as AKButton;
 
-impl<'a> WidgetTrait for Button<'a> {}
+impl<'a> Widget for Button<'a> {}
 
-impl<'a> DowncastWidget<AKButton> for Button<'a> {
-    fn downcast(&self) -> AKButton {
+impl<'a> Native<AKButton> for Button<'a> {
+    fn native(&self) -> AKButton {
         let button = AKButton::new(self.child.0);
         button
     }

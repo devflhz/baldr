@@ -1,7 +1,7 @@
 use crate::widgets::text::Text;
 
-#[derive(Debug, Default)]
-pub struct Button<'a> {
+#[derive(Debug, Default, Clone)]
+pub struct Button {
     pub on_pressed: (),
-    pub child: Text<'a>,
+    pub child: Text,
 }

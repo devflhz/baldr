@@ -1,4 +1,5 @@
-use widgets::WidgetTrait;
+use std::any::Any;
+use crate::widgets::window::Window;
 
 use crate::widgets::text::Text;
 use crate::widgets::Widget;
@@ -6,13 +7,14 @@ use crate::widgets::Widget;
 pub mod platform;
 pub mod widgets;
 
-#[derive(Debug)]
-pub struct Application<'a> {
-    pub title: &'a str,
-    pub app_id: &'a str,
-    pub home: Widget<'a>,
+#[derive(Debug, Clone)]
+pub struct Application {
+    pub app_id: String,
+    pub home: Window,
 }
 
-impl Application<'static> {}
-
-impl WidgetTrait for Application<'static> {}
+impl Widget for Application {
+    fn as_any(&self) -> &dyn Any {
+        self
+    }
+}

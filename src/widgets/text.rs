@@ -1,2 +1,2 @@
-#[derive(Debug, Default)]
-pub struct Text<'a>(pub &'a str);
+#[derive(Debug, Default, Clone)]
+pub struct Text(pub String);

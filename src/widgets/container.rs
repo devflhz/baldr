@@ -1,5 +1,5 @@
 use super::Widget;
 
-pub struct Container<'a> {
-    _children: Widget<'a>,
+pub struct Container {
+    _children: Box<dyn Widget>,
 }
