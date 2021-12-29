@@ -1,6 +1,4 @@
-use crate::widgets::WidgetTrait;
 use crate::widgets::scaffold::Scaffold;
+use crate::widgets::WidgetTrait;
 
-impl<'a> WidgetTrait for Scaffold<'a> {
-
-}
+impl<'a> WidgetTrait for Scaffold<'a> {}
