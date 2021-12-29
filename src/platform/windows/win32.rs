@@ -4,7 +4,7 @@ use windows::{
     Win32::System::LibraryLoader::GetModuleHandleA, Win32::UI::WindowsAndMessaging::*,
 };
 
-use crate::{AbstractApplication, Application, AbstractWindow, Window, WindowProperties};
+use crate::{AbstractApplication, AbstractWindow, Application, Window, WindowProperties};
 
 impl AbstractApplication<WindowProperties> for Application {
     fn builder() -> Self {

@@ -1,15 +1,16 @@
-use crate::{Text, Widget};
 use crate::widgets::appbar::AppBar;
+use crate::widgets::WidgetTrait;
+use crate::Text;
 
 impl<'a> Default for AppBar<Text<'a>> {
     fn default() -> Self {
-        todo!()
+        AppBar {
+            title: Text::default(),
+        }
     }
 }
 
-impl<'a> Widget for AppBar<Text<'a>> {
-    
-}
+impl<'a> WidgetTrait for AppBar<Text<'a>> {}
 
 // impl<'a> DowncastWidget<Toolbar> for AppBar<Text<'a>> {
 //     fn downcast(&self) -> Toolbar {

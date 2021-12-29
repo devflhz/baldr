@@ -1,6 +1,6 @@
-use crate::Widget;
+use super::WidgetTrait;
 
 #[derive(Debug)]
-pub struct AppBar<T: Widget> {
-    pub title: T
+pub struct AppBar<T: WidgetTrait> {
+    pub title: T,
 }

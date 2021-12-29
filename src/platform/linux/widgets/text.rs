@@ -1,4 +1,4 @@
-use crate::widgets::{Widget, text::Text, DowncastWidget};
+use crate::widgets::{text::Text, DowncastWidget, Widget};
 use gtk4::Label;
 
 impl<'a> Default for Text<'a> {

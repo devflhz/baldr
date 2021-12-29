@@ -1,26 +1,22 @@
 use anyhow::Result;
-use baldr::Application;
 use baldr::widgets::button::Button;
-use baldr::widgets::{
-    scaffold::Scaffold,
-    appbar::AppBar,
-    text::Text
-};
+use baldr::widgets::{appbar::AppBar, scaffold::Scaffold, text::Text};
+use baldr::Application;
 
 fn main() -> Result<()> {
     let app = Application {
         title: "",
         app_id: "",
-        home: Scaffold {
-            app_bar: AppBar {
-                title: Text("My First App")
-            },
-            body: Button {
+        home: Box::new(Scaffold {
+            app_bar: Box::new(AppBar {
+                title: Text("My First App"),
+            }),
+            body: Box::new(Button {
                 child: Text("Press"),
-                ..Default::default()
-            }
-        },
+                on_pressed: { println!("Pressed!") },
+            }),
+        }),
     };
-    println!("{:#?}", app.home.body.on_pressed);
+    println!("{:#?}", app);
     Ok(())
 }

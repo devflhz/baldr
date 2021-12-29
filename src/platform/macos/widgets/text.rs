@@ -1,6 +1,6 @@
 use cacao::text::Label;
 
-use crate::widgets::{Widget, text::Text, DowncastWidget};
+use crate::widgets::{text::Text, DowncastWidget, WidgetTrait};
 
 impl<'a> Default for Text<'a> {
     fn default() -> Self {
@@ -8,7 +8,7 @@ impl<'a> Default for Text<'a> {
     }
 }
 
-impl<'a> Widget for Text<'a> {}
+impl<'a> WidgetTrait for Text<'a> {}
 
 impl<'a> DowncastWidget<Label> for Text<'a> {
     fn downcast(&self) -> Label {

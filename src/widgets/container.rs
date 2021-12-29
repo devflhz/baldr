@@ -1,5 +1,5 @@
-use crate::Widget;
+use super::WidgetTrait;
 
-pub struct Container<T: Widget> {
-    _children: T
+pub struct Container<T: WidgetTrait> {
+    _children: T,
 }

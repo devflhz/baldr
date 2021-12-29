@@ -1,8 +1,7 @@
-use cacao::button::Button as AKButton;
-use crate::Widget;
 use crate::widgets::button::Button;
-use crate::widgets::DowncastWidget;
 use crate::widgets::text::Text;
+use crate::widgets::{DowncastWidget, WidgetTrait};
+use cacao::button::Button as AKButton;
 
 impl<'a> Default for Button<'a> {
     fn default() -> Self {
@@ -13,9 +12,7 @@ impl<'a> Default for Button<'a> {
     }
 }
 
-impl<'a> Widget for Button<'a> {
-
-}
+impl<'a> WidgetTrait for Button<'a> {}
 
 impl<'a> DowncastWidget<AKButton> for Button<'a> {
     fn downcast(&self) -> AKButton {

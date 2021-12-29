@@ -1,5 +1,6 @@
 #![windows_subsystem = "windows"]
 
+use windows as Windows;
 use windows::{
     core::*,
     ApplicationModel::Activation::LaunchActivatedEventArgs,
@@ -7,7 +8,6 @@ use windows::{
     UI::Xaml::Controls::Button,
     UI::Xaml::{Application, ApplicationInitializationCallback, Window},
 };
-use windows as Windows;
 
 #[implement(
     extend Windows::UI::Xaml::Application,
@@ -33,4 +33,3 @@ pub fn run() -> Result<()> {
         Ok(())
     }))
 }
-

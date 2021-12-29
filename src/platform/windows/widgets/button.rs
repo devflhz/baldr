@@ -1,6 +1,6 @@
 use windows::UI::Xaml::Controls::Button as WinButton;
 
-use crate::widgets::{widget::Widget, button::Button};
+use crate::widgets::{button::Button, widget::Widget};
 
 impl Widget for Button<WinButton> {
     fn paint() {

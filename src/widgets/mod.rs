@@ -1,11 +1,15 @@
-pub mod button;
-pub mod scaffold;
-pub mod appbar;
-pub mod text;
-pub mod header_bar;
-pub mod container;
+use std::fmt::Debug;
 
-pub trait Widget: Default + Sized {}
+pub mod appbar;
+pub mod button;
+pub mod container;
+pub mod header_bar;
+pub mod scaffold;
+pub mod text;
+
+pub trait WidgetTrait: Debug {}
+
+pub type Widget = Box<dyn WidgetTrait>;
 
 pub trait DowncastWidget<T> {
     fn downcast(&self) -> T;

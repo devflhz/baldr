@@ -1,25 +1,17 @@
-use crate::Widget;
-use crate::widgets::button::Button;
+use crate::widgets::appbar::AppBar;
 use crate::widgets::scaffold::Scaffold;
 use crate::widgets::text::Text;
-use crate::widgets::appbar::AppBar;
+use crate::widgets::WidgetTrait;
 
-impl<'a> Default for Scaffold<AppBar<Text<'a>>, Text<'a>> {
+impl<'a> Default for Scaffold {
     fn default() -> Self {
-        todo!()
+        Self {
+            app_bar: Box::new(AppBar {
+                title: Default::default(),
+            }),
+            body: Box::new(Text("")),
+        }
     }
 }
 
-impl<'a> Widget for Scaffold<AppBar<Text<'a>>, Text<'a>> {
-
-}
-
-impl<'a> Default for Scaffold<AppBar<Text<'a>>, Button<'a>> {
-    fn default() -> Self {
-        todo!()
-    }
-}
-
-impl<'a> Widget for Scaffold<AppBar<Text<'a>>, Button<'a>> {
-
-}
+impl<'a> WidgetTrait for Scaffold {}
