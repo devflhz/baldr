@@ -7,15 +7,15 @@ fn main() -> Result<()> {
     let app = Application {
         title: "",
         app_id: "",
-        home: Box::new(Scaffold {
-            app_bar: Box::new(AppBar {
+        home: &Scaffold {
+            app_bar: &AppBar {
                 title: Text("My First App"),
-            }),
-            body: Box::new(Button {
+            },
+            body: &Button {
                 child: Text("Press"),
-                on_pressed: { println!("Pressed!") },
-            }),
-        }),
+                ..Default::default()
+            },
+        },
     };
     println!("{:#?}", app);
     Ok(())

@@ -10,7 +10,7 @@ pub mod widgets;
 pub struct Application<'a> {
     pub title: &'a str,
     pub app_id: &'a str,
-    pub home: Widget,
+    pub home: Widget<'a>,
 }
 
 impl Application<'static> {}

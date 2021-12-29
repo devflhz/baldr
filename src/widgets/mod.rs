@@ -9,7 +9,7 @@ pub mod text;
 
 pub trait WidgetTrait: Debug {}
 
-pub type Widget = Box<dyn WidgetTrait>;
+pub type Widget<'a> = &'a dyn WidgetTrait;
 
 pub trait DowncastWidget<T> {
     fn downcast(&self) -> T;
