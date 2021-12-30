@@ -4,27 +4,24 @@ use gtk::prelude::{ApplicationExt, ApplicationExtManual};
 use gtk::Application as GApplication;
 use gtk::prelude::WidgetExt;
 use gtk4::prelude::{GtkWindowExt};
-use crate::Application;
 use crate::widgets::button::Button;
 use crate::widgets::Native;
+use crate::{
+    AppCreation,
+    Application
+};
 
-#[derive(Debug, Clone)]
-pub struct Application {
-    pub app_id: String,
-    pub window: Window,
-}
-
-impl AppCreation for Application {
-    fn create(&self) {
+impl AppCreation for Application<'static> {
+    fn create(self, bundle_id: &str) {
         let app = GApplication::builder()
-            .application_id(self.app_id.as_str())
+            .application_id(bundle_id)
             .build();
-        let options = self.home.clone();
-        let app_bar = self.home.app_bar.clone();
-        let body = self.home.body.clone();
+        let options = self.window.clone();
+        let app_bar = self.window.app_bar.clone();
+        let body = self.window.body.clone();
         app.connect_activate(move |app | {
             let window = ApplicationWindow::builder()
-                .title(options.title.as_str())
+                .title(options.title)
                 .default_height(options.default_height)
                 .default_width(options.default_width)
                 .application(app)

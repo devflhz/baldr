@@ -4,11 +4,6 @@ use cacao::{macos::{AppDelegate, App, window::{Window as NSWindow, WindowDelegat
 
 use crate::{AppCreation, widgets::{Widget, window::Window, button::Button, Native}};
 
-#[derive(Debug, Default)]
-pub struct Application<'a> {
-    pub window: Window<'a>,
-}
-
 impl Widget for Application<'static> {
     fn as_any(&self) -> &dyn Any {
         self

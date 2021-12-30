@@ -1,3 +1,4 @@
+#[cfg(target_os = "macos")]
 use cacao::view::View;
 
 use crate::Widget;

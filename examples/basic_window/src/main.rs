@@ -1,10 +1,7 @@
 use anyhow::Result;
-use baldr::platform::macos::appkit::Application;
 use baldr::widgets::button::Button;
 use baldr::widgets::{appbar::AppBar, window::Window};
-use baldr::{
-    AppCreation
-};
+use baldr::{AppCreation, Application};
 
 fn main() -> Result<()> {
     let app = Application {
