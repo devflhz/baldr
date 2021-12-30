@@ -4,13 +4,13 @@ use crate::widgets::Native;
 use crate::Widget;
 use crate::widgets::window::Window;
 
-impl Widget for Window {
+impl Widget for Window<'static> {
     fn as_any(&self) -> &dyn Any {
         self
     }
 }
 
-impl Native<NSWindow> for Window {
+impl<'a> Native<NSWindow> for Window<'a> {
     fn native(&self) -> NSWindow {
         NSWindow::default()
     }

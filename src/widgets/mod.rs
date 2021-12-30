@@ -25,7 +25,7 @@ pub trait Widget: Debug {
 impl Default for Box<dyn Widget> {
     fn default() -> Self {
         Box::new(
-            Text("".to_string())
+            Text("")
         )
     }
 }

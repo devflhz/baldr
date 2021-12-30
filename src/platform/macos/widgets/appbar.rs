@@ -4,7 +4,7 @@ use cacao::macos::toolbar::{Toolbar, ToolbarItem, ToolbarDelegate, ItemIdentifie
 use crate::widgets::{Widget, Native};
 use crate::widgets::appbar::AppBar;
 
-impl Widget for AppBar {
+impl Widget for AppBar<'static> {
     fn as_any(&self) -> &dyn std::any::Any {
         self
     }
@@ -70,7 +70,7 @@ impl ToolbarDelegate for AppToolbar {
     }
 }
 
-impl Native<AppToolbar> for AppBar {
+impl<'a> Native<AppToolbar> for AppBar<'a> {
     fn native(&self) -> AppToolbar {
         let header = AppToolbar::default();
         header

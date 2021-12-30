@@ -2,16 +2,16 @@ use cacao::text::Label;
 
 use crate::widgets::{text::Text, Native, Widget};
 
-impl Widget for Text {
+impl Widget for Text<'static> {
     fn as_any(&self) -> &dyn std::any::Any {
         self
     }
 }
 
-impl Native<Label> for Text {
+impl<'a> Native<Label> for Text<'a> {
     fn native(&self) -> Label {
         let label = Label::new();
-        label.set_text(self.0.as_str());
+        label.set_text(self.0);
         label
     }
 }
