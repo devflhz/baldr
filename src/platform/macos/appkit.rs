@@ -1,8 +1,8 @@
 use std::{any::Any};
 
-use cacao::{macos::{AppDelegate, App, window::{Window as NSWindow, WindowDelegate}}, view::View, layout::{Layout, LayoutConstraint}, button::Button as NSButton};
+use cacao::{macos::{AppDelegate, App, window::{Window as NSWindow, WindowDelegate}}, layout::{Layout, LayoutConstraint}, button::Button as NSButton};
 
-use crate::{AppCreation, widgets::{Widget, window::Window, button::Button, Native}};
+use crate::{widgets::{Widget, window::Window, button::Button, Native}, Application, AppCreation};
 
 impl Widget for Application<'static> {
     fn as_any(&self) -> &dyn Any {
